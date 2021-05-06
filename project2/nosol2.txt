@@ -1,0 +1,4 @@
+2
+Gaussian-jordan
+-4*a + 10*b -6
+2*a -5*b -3

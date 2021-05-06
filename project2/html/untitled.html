@@ -1,0 +1,1539 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>untitled</title><meta name="generator" content="MATLAB 8.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-01-18"><meta name="DC.source" content="untitled.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> varargout = untitled(varargin)
+
+<span class="comment">% Begin initialization code - DO NOT EDIT</span>
+gui_Singleton = 1;
+gui_State = struct(<span class="string">'gui_Name'</span>,       mfilename, <span class="keyword">...</span>
+                   <span class="string">'gui_Singleton'</span>,  gui_Singleton, <span class="keyword">...</span>
+                   <span class="string">'gui_OpeningFcn'</span>, @untitled_OpeningFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_OutputFcn'</span>,  @untitled_OutputFcn, <span class="keyword">...</span>
+                   <span class="string">'gui_LayoutFcn'</span>,  [] , <span class="keyword">...</span>
+                   <span class="string">'gui_Callback'</span>,   []);
+<span class="keyword">if</span> nargin &amp;&amp; ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+<span class="keyword">end</span>
+
+<span class="keyword">if</span> nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">else</span>
+    gui_mainfcn(gui_State, varargin{:});
+<span class="keyword">end</span>
+<span class="comment">% End initialization code - DO NOT EDIT</span>
+
+
+<span class="comment">% --- Executes just before untitled is made visible.</span>
+<span class="keyword">function</span> untitled_OpeningFcn(hObject, eventdata, handles, varargin)
+handles.output = hObject;
+
+<span class="comment">% Update handles structure</span>
+guidata(hObject, handles);
+set(handles.eq1, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.e1, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.eq2, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.e2, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.eq3, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.e3, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.eq4, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.e4, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.eq5, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.e5, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.GaussElimination, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.GaussJordan, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.GaussSeidel, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.LU, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.lhtext, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.lhs, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.filename, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.name, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.N, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.enter, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.enterfile, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.dim, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.tol, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.dummy, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.m, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.t, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.guesses, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+set(handles.dummy2, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+<span class="comment">% UIWAIT makes untitled wait for user response (see UIRESUME)</span>
+<span class="comment">% uiwait(handles.figure1);</span>
+
+<span class="keyword">function</span> varargout = untitled_OutputFcn(hObject, eventdata, handles)
+varargout{1} = handles.output;
+
+<span class="keyword">function</span> enter_Callback(hObject, eventdata, handles)
+    <span class="keyword">global</span> num
+    <span class="keyword">if</span> num&lt;=1
+        msgbox(<span class="string">'number of equations must be greater than 1'</span>);
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    set(handles.guesses, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.dummy2, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.GaussElimination, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.GaussJordan, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.GaussSeidel, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.LU, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.lhtext, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.lhs, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    <span class="keyword">global</span> tol
+    <span class="keyword">global</span> iterations;
+    mynum = get(handles.N,<span class="string">'string'</span>);
+    num = str2double(mynum);
+    tol = get(handles.tol,<span class="string">'string'</span>);
+    tol = str2double(tol);
+    iterations = get(handles.m,<span class="string">'string'</span>);
+    iterations = str2double(iterations);
+
+    <span class="keyword">if</span> num &gt; 1
+        set(handles.eq1, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+        set(handles.e1, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 2
+        set(handles.eq2, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+        set(handles.e2, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 3
+        set(handles.eq3, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+        set(handles.e3, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 4
+        set(handles.eq4, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+        set(handles.e4, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 5
+        set(handles.eq5, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+        set(handles.e5, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    <span class="keyword">end</span>
+
+
+<span class="comment">% --- Executes on button press in GaussElimination.</span>
+<span class="keyword">function</span> GaussElimination_Callback(hObject, eventdata, handles)
+    array = readvalues(hObject, eventdata, handles);
+    <span class="keyword">if</span> array(1)==<span class="string">'*'</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    output = Gauss_Elimination(array);
+    <span class="keyword">if</span> output(1)==<span class="string">'*'</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    write_in_gui(output,hObject,eventdata,handles);
+
+
+
+<span class="keyword">function</span> x = Gauss_Elimination(array)
+    tic
+    x=[];
+    A= array;
+    [m,n] = size(A);
+    <span class="keyword">for</span> j = 1:m-1
+        <span class="keyword">for</span> i= j+1:m
+            A(i,:)=A(i,:)- A(j,:)*(A(i,j)/A(j,j));
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> A(m,n-1) == 0 &amp;&amp; A(m,n)==0
+        msgbox(<span class="string">'The system has an infinite number of solutions'</span>);
+        x(1)=<span class="string">'*'</span>;
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> i=1:m
+        <span class="keyword">if</span> A(i,i)==0
+            msgbox(<span class="string">'The system has no solutions'</span>);
+            x(1)=<span class="string">'*'</span>;
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    x = zeros(1,m);
+    <span class="keyword">for</span> s =m:-1:1
+        c=0;
+        <span class="keyword">for</span> k=2:m
+            c=c+A(s,k)*x(k);
+        <span class="keyword">end</span>
+        x(s) = (A(s,n)-c)/A(s,s);
+    <span class="keyword">end</span>
+    time = num2str(toc);
+    string1=[<span class="string">'Time taken: '</span> time];
+    msgbox(string1);
+    x=x';
+    writetable(array2table(x),<span class="string">'outputGauss.txt'</span>)
+
+
+<span class="keyword">function</span> x = Gauss_jordan(array)
+    tic
+    A= array ;
+    [m,n] = size(A);
+    x = zeros(1,m);
+    <span class="keyword">for</span> j = 1:m-1
+        <span class="keyword">for</span> i= j+1:m
+            A(i,:)=A(i,:) - A (j,:)*(A(i,j)/A(j,j));
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> j=m:-1:2
+        <span class="keyword">for</span> i=j-1:-1:1
+             A(i,:)=A(i,:) - A (j,:)*(A(i,j)/A(j,j));
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> A(m,n-1) == 0 &amp;&amp; A(m,n)==0
+        msgbox(<span class="string">'The system has an infinite number of solutions'</span>);
+        x(1)=<span class="string">'*'</span>;
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> i=1:m
+        <span class="keyword">if</span> A(i,i)==0
+            msgbox(<span class="string">'The system has no solutions'</span>);
+            x(1)=<span class="string">'*'</span>;
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+    <span class="keyword">for</span> s=1:m
+        A(s,:)=A(s,:)/A(s,s);
+        x(s) = A(s,n);
+    <span class="keyword">end</span>
+    time = num2str(toc);
+    string1=[<span class="string">'Time taken: '</span> time];
+    msgbox(string1);
+    x=x';
+    writetable(array2table(x),<span class="string">'outputGaussJordan.txt'</span>);
+
+
+
+<span class="keyword">function</span> GaussJordan_Callback(hObject, eventdata, handles)
+    <span class="keyword">global</span> num;
+    array = readvalues(hObject, eventdata, handles);
+    <span class="keyword">if</span> array(1)==<span class="string">'*'</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    output=Gauss_jordan(array);
+    <span class="keyword">if</span> output(1)==<span class="string">'*'</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    write_in_gui(output,hObject,eventdata,handles);
+
+    <span class="keyword">function</span> GaussSeidel_Callback(hObject, eventdata, handles)
+    <span class="keyword">global</span> num;
+    array = readvalues(hObject, eventdata, handles);
+    <span class="keyword">if</span> array(1)==<span class="string">'*'</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    arr = get(handles.guesses,<span class="string">'string'</span>);
+        t = regexp(regexprep(cellstr(arr), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+        initial_guesses = str2double(vertcat(t{:}));
+    L= length(initial_guesses);
+    <span class="keyword">if</span> L&gt;num || L&lt;num
+        msgbox(<span class="string">'number of initial guesses must agree with number of equations'</span>,<span class="string">'error'</span>,<span class="string">'Error'</span>);
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    output = Gauss_Seidel(array,initial_guesses);
+    <span class="keyword">if</span> output(1)==<span class="string">'*'</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    write_in_gui(output,hObject,eventdata,handles);
+
+<span class="keyword">function</span> x = checknum(array)
+    <span class="keyword">global</span> num
+    L= length(array);
+    x=0;
+    <span class="keyword">if</span> L&gt;num || L&lt;num
+        x=1;
+    <span class="keyword">end</span>
+
+
+
+<span class="keyword">function</span> x1 = Gauss_Seidel(array, initial_g)
+ tic
+ <span class="keyword">global</span> tol
+ <span class="keyword">global</span> iterations
+ A = array;
+ n = length(A)-1;
+ a=A(:,1:n);
+ R = sum(abs(a),2);
+ D = abs(diag(a));
+ W=R-D;
+ check = D&gt;=W;
+ DD = all(check);
+ <span class="keyword">if</span> DD == 0
+     msgbox(<span class="string">'gauss seidel cannot be performed, matrix is not diagonally dominant'</span>, <span class="string">'Error'</span>,<span class="string">'error'</span>);
+     x1(1)=<span class="string">'*'</span>;
+     <span class="keyword">return</span>;
+ <span class="keyword">end</span>
+ <span class="keyword">for</span> i=1:n
+     temp = array(i,i);
+     <span class="keyword">if</span> temp==0
+         msgbox(<span class="string">'gauss seidel cannot be performed diagonal contains a zero'</span>, <span class="string">'Error'</span>,<span class="string">'error'</span>);
+         x1(1)=<span class="string">'*'</span>;
+         <span class="keyword">return</span>;
+     <span class="keyword">end</span>
+ <span class="keyword">end</span>
+ <span class="keyword">if</span> det(a)==0
+    msgbox(<span class="string">'gauss seidel cannot be performed'</span>, <span class="string">'Error'</span>,<span class="string">'error'</span>);
+    x1(1)=<span class="string">'*'</span>;
+    <span class="keyword">return</span>;
+ <span class="keyword">end</span>
+
+ x1 = initial_g;
+ tolstring = isnan(tol);
+ mycheck=all(tolstring);
+ tempstring = isnan(iterations);
+ mycheck2=all(tempstring);
+ <span class="keyword">if</span> mycheck==1
+    tol = 0.00001;
+ <span class="keyword">end</span>
+ m=50;
+ <span class="keyword">if</span> mycheck2==1
+    m = 50;
+ <span class="keyword">else</span>
+     m=iterations;
+ <span class="keyword">end</span>
+ k = 1;
+ X = zeros(n,m);
+ errors = zeros(n,m);
+ <span class="keyword">while</span>  k &lt;= m
+    err = 0;
+    <span class="keyword">for</span> i = 1 : n
+       s = 0;
+       <span class="keyword">for</span> j = 1 : n
+          s = s-A(i,j)*x1(j);
+       <span class="keyword">end</span>
+       s = (s+A(i,n+1))/A(i,i);
+       <span class="keyword">if</span> abs(s) &gt; err
+         err  = abs(s);
+       <span class="keyword">end</span>
+       errors(i,k)=err;
+       x1(i) = x1(i) + s;
+       X(i,k)=x1(i);
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> err &lt;= tol
+      <span class="keyword">break</span>;
+    <span class="keyword">else</span>
+      k = k+1;
+    <span class="keyword">end</span>
+ <span class="keyword">end</span>
+ time = num2str(toc);
+ string1=[<span class="string">'Time taken: '</span> time];
+ string2=[<span class="string">'  Number of iterations: '</span> num2str(k)];
+ msgbox([string1 string2]);
+ <span class="keyword">for</span> i=1:n
+     temparr = X(i,1:k);
+     figure;
+     n=linspace(0,k,k);
+     plot(n,temparr);
+
+ <span class="keyword">end</span>
+ output=x1;
+ myerrors = errors(:,1:k);
+ dummy = X(:,1:k);
+ <span class="keyword">global</span> num;
+ N=num*2;
+ table=zeros(k,N);
+ i=1;
+ v=1;
+ <span class="keyword">while</span> i&lt;=N
+     temp1 = myerrors(v,:)';
+     temp2 = dummy(v,:)';
+     table(:,i)=temp2;
+     table(:,i+1)=temp1;
+     i=i+2;
+     v=v+1;
+ <span class="keyword">end</span>
+ fig = figure;
+ uit = uitable(fig,<span class="string">'Data'</span>,table);
+
+ writetable(array2table(output'),<span class="string">'outputGaussSeidel.txt'</span>);
+
+<span class="keyword">function</span> LU_Callback(hObject, eventdata, handles)
+    <span class="keyword">global</span> num;
+    array = readvalues(hObject, eventdata, handles);
+    <span class="keyword">if</span> array(1)==<span class="string">'*'</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    output = LUdec(array);
+    <span class="keyword">if</span> output(1)==<span class="string">'*'</span>
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    write_in_gui(output,hObject,eventdata,handles);
+
+<span class="keyword">function</span> x= LUdec(array)
+    tic
+    A= array;
+    [ccc,n] = size(A);
+    A= array(:,1:n-1);
+    B = array(:,n);
+    [m,n]=size(A);
+    <span class="keyword">if</span> (m ~= n )
+        msgbox( <span class="string">'LU error: Matrix must be square'</span> );
+        x(1)=<span class="string">'*'</span>;
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>;
+  L=zeros(m,m);
+  U=zeros(m,m);
+  <span class="keyword">for</span> i=1:m
+      <span class="comment">% Finding L</span>
+      <span class="keyword">for</span> k=1:i-1
+          L(i,k)=A(i,k);
+          <span class="keyword">for</span> j=1:k-1
+            L(i,k)= L(i,k)-L(i,j)*U(j,k);
+          <span class="keyword">end</span>
+          L(i,k) = L(i,k)/U(k,k);
+      <span class="keyword">end</span>
+      <span class="comment">% Finding U</span>
+      <span class="keyword">for</span> k=i:m
+          U(i,k) = A(i,k);
+          <span class="keyword">for</span> j=1:i-1
+          U(i,k)= U(i,k)-L(i,j)*U(j,k);
+          <span class="keyword">end</span>
+      <span class="keyword">end</span>
+  <span class="keyword">end</span>
+  <span class="keyword">for</span> i=1:m
+      L(i,i)=1;
+  <span class="keyword">end</span>
+
+  y=zeros(m,1); <span class="comment">% initiation for y</span>
+  y(1)=B(1)/L(1,1);
+  <span class="keyword">for</span> i=2:m
+      y(i)=-L(i,1)*y(1);
+      <span class="keyword">for</span> k=2:i-1
+           y(i)=y(i)-L(i,k)*y(k);
+      <span class="keyword">end</span>;
+          y(i)=(B(i)+y(i))/L(i,i);
+   <span class="keyword">end</span>;
+    <span class="comment">% Now we use this y to solve Ux = y</span>
+    x=zeros(m,1);
+    <span class="keyword">if</span> y(m)==0 &amp;&amp; U(m,m)==0
+        msgbox( <span class="string">'LU error: system has infinte number of solutions'</span> );
+        x(1)=<span class="string">'*'</span>;
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    <span class="keyword">for</span> i=1:m
+      temp = U(i,i);
+      <span class="keyword">if</span> temp==0
+          msgbox( <span class="string">'LU error: system has no solution'</span> );
+          x(1)=<span class="string">'*'</span>;
+          <span class="keyword">return</span>;
+      <span class="keyword">end</span>
+
+    <span class="keyword">end</span>
+    x(m)=y(m)/U(m,m);
+
+    i=m-1;
+    q=0;
+    <span class="keyword">while</span>  (i~= 0)
+      x(i)=-U(i,m)*x(m);
+       q=i+1;
+          <span class="keyword">while</span> (q~=m)
+              x(i)=x(i)-U(i,q)*x(q);
+              q=q+1;
+          <span class="keyword">end</span>;
+        x(i)=(y(i)+x(i))/U(i,i);
+        i=i-1;
+    <span class="keyword">end</span>
+    time = num2str(toc);
+    string1=[<span class="string">'Time taken: '</span> time];
+    msgbox(string1);
+    output = x;
+    writetable(array2table(output),<span class="string">'outputLU.txt'</span>);
+
+<span class="keyword">function</span> listbox2_Callback(hObject, eventdata, handles)
+    <span class="comment">%GUI deets%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+    set(handles.tol, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.dummy, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.m, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.t, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.eq1, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.e1, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.eq2, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.e2, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.eq3, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.e3, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.eq4, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.e4, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.eq5, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.e5, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.GaussElimination, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.GaussJordan, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.GaussSeidel, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.LU, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.lhtext, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.lhs, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.filename, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.name, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.N, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.enter, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.enterfile, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    set(handles.dim, <span class="string">'enable'</span>,<span class="string">'off'</span>)
+    <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+    contents=get(handles.listbox2,<span class="string">'Value'</span>);
+
+    <span class="keyword">if</span> contents == 2
+    set(handles.filename, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.name, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.enterfile, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> contents == 1
+    set(handles.N, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.enter, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    set(handles.dim, <span class="string">'enable'</span>,<span class="string">'on'</span>)
+    <span class="keyword">end</span>
+
+
+
+
+<span class="keyword">function</span> enterfile_Callback(hObject, eventdata, handles)
+    <span class="keyword">global</span> num;
+    <span class="keyword">global</span> tol
+    <span class="keyword">global</span> iterations;
+    tol = get(handles.tol,<span class="string">'string'</span>);
+    tol = str2double(tol);
+    iterations = get(handles.m,<span class="string">'string'</span>);
+    iterations = str2double(iterations);
+    filename = get(handles.name,<span class="string">'string'</span>);
+    fileID = fopen(filename,<span class="string">'r'</span>);
+    <span class="keyword">if</span> fileID == -1
+        warndlg(<span class="string">'ERROR OPENING THE FILE'</span>);
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> fileID ~= -1
+    num = fgets(fileID);
+    num = str2num(num);
+    method = fgets(fileID);
+    method = method(1:end-2);
+    len =length(method);
+    <span class="keyword">if</span> len == 0
+        msgbox(<span class="string">'please specify the numerical method you want to use'</span>);
+        <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    array =zeros(num,num+1);
+    syms <span class="string">a</span> <span class="string">b</span> <span class="string">c</span> <span class="string">d</span>
+
+    i = 0;
+    <span class="keyword">for</span> z=1:num
+        arr = fgets(fileID);
+        i = i + 1;
+        t = regexp(regexprep(cellstr(arr), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+        temparr = str2double(vertcat(t{:}));
+        numnum = length(temparr);
+        array(i,num+1) = temparr(numnum)*-1;
+        <span class="keyword">if</span> num &gt;=1
+            ca = coeffs(arr,a);
+            temp = 0;
+            <span class="keyword">if</span>(length(ca)&gt;1)
+                temp = ca(2);
+            <span class="keyword">end</span>
+            array(i,1) = temp;
+        <span class="keyword">end</span>
+
+        <span class="keyword">if</span> num &gt;=2
+            cb = coeffs(arr,b);
+            temp = 0;
+            <span class="keyword">if</span>(length(cb)&gt;1)
+                temp = cb(2);
+            <span class="keyword">end</span>
+            array(i,2) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> num &gt;=3
+            cc = coeffs(arr,c);
+            temp = 0;
+            <span class="keyword">if</span>(length(cc)&gt;1)
+                temp = cc(2);
+            <span class="keyword">end</span>
+            array(i,3) = temp;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> num &gt;=4
+            cd = coeffs(arr,d);
+            array(i,4) = cd(2);
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> num &gt;=5
+            ce = coeffs(arr,e);
+            array(i,5) = ce(2);
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    g1=strcmpi(method, <span class="string">'Gaussian-elimination'</span>);
+    g2=strcmpi(method, <span class="string">'Gaussian-jordan'</span>);
+    g3=strcmpi(method, <span class="string">'Gaussian-seidel'</span>);
+    g4=strcmpi(method, <span class="string">'LU-decomposition'</span>);
+    [m,n] = size(array);
+    <span class="keyword">if</span> m~=n-1
+        warndlg(<span class="string">'MATRIX IS NOT SQUARE'</span>);
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> m == n-1
+    <span class="keyword">if</span> g4 == 1
+       output =  LUdec(array);
+    <span class="keyword">end</span>
+    <span class="keyword">if</span>  g3 == 1
+        initialguesses = fgets(fileID);
+        t= regexp(regexprep(cellstr(initialguesses), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+        initialguesses = str2double(vertcat(t{:}));
+        len = length(initialguesses);
+        <span class="keyword">if</span> len&lt;num || len&gt;num
+            msgbox(<span class="string">'Please make sure dimensions of initial guesses match number of equations'</span>);
+            <span class="keyword">return</span>
+        <span class="keyword">end</span>
+        output = Gauss_Seidel(array, initialguesses);
+    <span class="keyword">end</span>
+    <span class="keyword">if</span>  g2 == 1
+        output = Gauss_jordan(array);
+    <span class="keyword">end</span>
+    <span class="keyword">if</span>  g1 == 1
+        output = Gauss_Elimination(array);
+    <span class="keyword">end</span>
+        <span class="keyword">if</span> output(1)==<span class="string">'*'</span>
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        write_in_gui(output,hObject,eventdata,handles)
+    <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">function</span> ret = write_in_gui(output,hObject,eventdata,handles)
+    <span class="keyword">global</span> num;
+        op=[];
+    <span class="keyword">for</span> i=1:num
+        new = sprintf(<span class="string">'\nVariable%d = %f\n\n'</span>,i, output(i));
+        <span class="keyword">if</span> i == 1
+            op = new;
+        <span class="keyword">end</span>
+        <span class="keyword">if</span> i~=1
+            op = [op new];
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    set(handles.outputbox,<span class="string">'String'</span>,op);
+
+
+<span class="keyword">function</span> array = readvalues(hObject,eventdata,handles)
+    <span class="keyword">global</span> num;
+    array =zeros(num,num+1);
+    lhs_arr = get(handles.lhs,<span class="string">'string'</span>);
+    t = regexp(regexprep(cellstr(lhs_arr), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+    lhs_arr = str2double(vertcat(t{:}));
+    x = checknum(lhs_arr);
+    <span class="keyword">if</span> x==1
+       msgbox(<span class="string">'LHS array dimensions do not match'</span>,<span class="string">'error'</span>,<span class="string">'Error'</span>);
+       array(1)=<span class="string">'*'</span>;
+       <span class="keyword">return</span>;
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 1
+        arr1 = get(handles.eq1,<span class="string">'string'</span>);
+        t = regexp(regexprep(cellstr(arr1), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+        arr1 = str2double(vertcat(t{:}));
+        x = checknum(arr1);
+        <span class="keyword">if</span> x==1
+            msgbox(<span class="string">'First equation dimensions do not match'</span>,<span class="string">'error'</span>,<span class="string">'Error'</span>);
+            array(1)=<span class="string">'*'</span>;
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        array = arr1;
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 2
+        arr2 = get(handles.eq2,<span class="string">'string'</span>);
+        t = regexp(regexprep(cellstr(arr2), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+        arr2 = str2double(vertcat(t{:}));
+        x = checknum(arr2);
+        <span class="keyword">if</span> x==1
+            msgbox(<span class="string">'Second equation dimensions do not match'</span>,<span class="string">'error'</span>,<span class="string">'Error'</span>);
+            array(1)=<span class="string">'*'</span>;
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        array = [array; arr2];
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 3
+        arr3 = get(handles.eq3,<span class="string">'string'</span>);
+        t = regexp(regexprep(cellstr(arr3), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+        arr3 = str2double(vertcat(t{:}));
+        x = checknum(arr3);
+        <span class="keyword">if</span> x==1
+            msgbox(<span class="string">'Third equation dimensions do not match'</span>,<span class="string">'error'</span>,<span class="string">'Error'</span>)
+            array(1)=<span class="string">'*'</span>;
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        array = [array; arr3];
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 4
+        arr4 = get(handles.eq4,<span class="string">'string'</span>);
+        t = regexp(regexprep(cellstr(arr4), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+        arr4 = str2double(vertcat(t{:}));
+        x = checknum(arr4);
+        <span class="keyword">if</span> x==1
+            msgbox(<span class="string">'Fourth equation dimensions do not match'</span>,<span class="string">'error'</span>,<span class="string">'Error'</span>);
+            array(1)=<span class="string">'*'</span>;
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        array = [array; arr4];
+    <span class="keyword">end</span>
+    <span class="keyword">if</span> num &gt;= 5
+        arr5 = get(handles.eq5,<span class="string">'string'</span>);
+        t = regexp(regexprep(cellstr(arr5), <span class="string">'^\s+'</span>, <span class="string">''</span>), <span class="string">'\s+'</span>, <span class="string">'split'</span>);
+        arr5 = str2double(vertcat(t{:}));
+        x = checknum(arr5);
+        <span class="keyword">if</span> x==1
+            msgbox(<span class="string">'Fifth equation dimensions do not match'</span>,<span class="string">'error'</span>,<span class="string">'Error'</span>);
+            array(1)=<span class="string">'*'</span>;
+            <span class="keyword">return</span>;
+        <span class="keyword">end</span>
+        array = [array;arr5];
+    <span class="keyword">end</span>
+    b = lhs_arr';
+    array = [array b];
+
+<span class="keyword">function</span> tol_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> tol_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> m_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> m_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> guesses_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> guesses_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> listbox2_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> N_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> N_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> eq1_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> eq1_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> eq2_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> eq2_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> eq3_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> eq3_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> eq4_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> eq4_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> eq5_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> eq5_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> name_Callback(hObject, eventdata, handles)
+<span class="keyword">function</span> name_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+<span class="keyword">function</span> lhs_Callback(hObject, eventdata, handles)
+
+<span class="keyword">function</span> lhs_CreateFcn(hObject, eventdata, handles)
+<span class="keyword">if</span> ispc &amp;&amp; isequal(get(hObject,<span class="string">'BackgroundColor'</span>), get(0,<span class="string">'defaultUicontrolBackgroundColor'</span>))
+    set(hObject,<span class="string">'BackgroundColor'</span>,<span class="string">'white'</span>);
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="untitled_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2013b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function varargout = untitled(varargin)
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @untitled_OpeningFcn, ...
+                   'gui_OutputFcn',  @untitled_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% REPLACE_WITH_DASH_DASH- Executes just before untitled is made visible.
+function untitled_OpeningFcn(hObject, eventdata, handles, varargin)
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+set(handles.eq1, 'enable','off')
+set(handles.e1, 'enable','off')
+set(handles.eq2, 'enable','off')
+set(handles.e2, 'enable','off')
+set(handles.eq3, 'enable','off')
+set(handles.e3, 'enable','off')
+set(handles.eq4, 'enable','off')
+set(handles.e4, 'enable','off')
+set(handles.eq5, 'enable','off')
+set(handles.e5, 'enable','off')
+set(handles.GaussElimination, 'enable','off')
+set(handles.GaussJordan, 'enable','off')
+set(handles.GaussSeidel, 'enable','off')
+set(handles.LU, 'enable','off')
+set(handles.lhtext, 'enable','off')
+set(handles.lhs, 'enable','off')
+set(handles.filename, 'enable','off')
+set(handles.name, 'enable','off')
+set(handles.N, 'enable','off')
+set(handles.enter, 'enable','off')
+set(handles.enterfile, 'enable','off')
+set(handles.dim, 'enable','off')
+set(handles.tol, 'enable','off')
+set(handles.dummy, 'enable','off')
+set(handles.m, 'enable','off')
+set(handles.t, 'enable','off')
+set(handles.guesses, 'enable','off')
+set(handles.dummy2, 'enable','off')
+% UIWAIT makes untitled wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+function varargout = untitled_OutputFcn(hObject, eventdata, handles) 
+varargout{1} = handles.output;
+
+function enter_Callback(hObject, eventdata, handles)
+    global num 
+    if num<=1
+        msgbox('number of equations must be greater than 1');
+        return;
+    end
+    set(handles.guesses, 'enable','on')
+    set(handles.dummy2, 'enable','on')
+    set(handles.GaussElimination, 'enable','on')
+    set(handles.GaussJordan, 'enable','on')
+    set(handles.GaussSeidel, 'enable','on')
+    set(handles.LU, 'enable','on')
+    set(handles.lhtext, 'enable','on')
+    set(handles.lhs, 'enable','on')
+    global tol
+    global iterations;
+    mynum = get(handles.N,'string');
+    num = str2double(mynum);
+    tol = get(handles.tol,'string');
+    tol = str2double(tol);
+    iterations = get(handles.m,'string');
+    iterations = str2double(iterations);
+    
+    if num > 1
+        set(handles.eq1, 'enable','on')
+        set(handles.e1, 'enable','on')
+    end
+    if num >= 2
+        set(handles.eq2, 'enable','on')
+        set(handles.e2, 'enable','on')
+    end
+    if num >= 3
+        set(handles.eq3, 'enable','on')
+        set(handles.e3, 'enable','on')
+        
+    end
+    if num >= 4
+        set(handles.eq4, 'enable','on')
+        set(handles.e4, 'enable','on')
+        
+    end
+    if num >= 5
+        set(handles.eq5, 'enable','on')
+        set(handles.e5, 'enable','on')
+    end
+    
+
+% REPLACE_WITH_DASH_DASH- Executes on button press in GaussElimination.
+function GaussElimination_Callback(hObject, eventdata, handles)
+    array = readvalues(hObject, eventdata, handles);
+    if array(1)=='*'
+        return;
+    end
+    output = Gauss_Elimination(array);
+    if output(1)=='*'
+        return;
+    end
+    write_in_gui(output,hObject,eventdata,handles);
+
+    
+    
+function x = Gauss_Elimination(array)
+    tic
+    x=[];
+    A= array;
+    [m,n] = size(A);
+    for j = 1:m-1
+        for i= j+1:m
+            A(i,:)=A(i,:)- A(j,:)*(A(i,j)/A(j,j));
+        end  
+    end 
+    if A(m,n-1) == 0 && A(m,n)==0
+        msgbox('The system has an infinite number of solutions');
+        x(1)='*';
+        return;
+    end
+    for i=1:m
+        if A(i,i)==0
+            msgbox('The system has no solutions');
+            x(1)='*';
+            return;
+        end
+    end
+
+    x = zeros(1,m);
+    for s =m:-1:1
+        c=0;
+        for k=2:m
+            c=c+A(s,k)*x(k);
+        end
+        x(s) = (A(s,n)-c)/A(s,s);
+    end
+    time = num2str(toc);
+    string1=['Time taken: ' time];
+    msgbox(string1);
+    x=x';
+    writetable(array2table(x),'outputGauss.txt')
+    
+
+function x = Gauss_jordan(array)
+    tic
+    A= array ;
+    [m,n] = size(A);
+    x = zeros(1,m);
+    for j = 1:m-1
+        for i= j+1:m
+            A(i,:)=A(i,:) - A (j,:)*(A(i,j)/A(j,j));
+        end  
+    end 
+    for j=m:-1:2
+        for i=j-1:-1:1
+             A(i,:)=A(i,:) - A (j,:)*(A(i,j)/A(j,j));
+        end
+    end
+    if A(m,n-1) == 0 && A(m,n)==0
+        msgbox('The system has an infinite number of solutions');
+        x(1)='*';
+        return;
+    end
+    for i=1:m
+        if A(i,i)==0
+            msgbox('The system has no solutions');
+            x(1)='*';
+            return;
+        end
+    end
+
+    for s=1:m
+        A(s,:)=A(s,:)/A(s,s);
+        x(s) = A(s,n);
+    end
+    time = num2str(toc);
+    string1=['Time taken: ' time];
+    msgbox(string1);
+    x=x';
+    writetable(array2table(x),'outputGaussJordan.txt');
+            
+
+
+function GaussJordan_Callback(hObject, eventdata, handles)
+    global num;
+    array = readvalues(hObject, eventdata, handles);
+    if array(1)=='*'
+        return;
+    end
+    output=Gauss_jordan(array);
+    if output(1)=='*'
+        return;
+    end
+    write_in_gui(output,hObject,eventdata,handles);
+
+    function GaussSeidel_Callback(hObject, eventdata, handles)
+    global num;
+    array = readvalues(hObject, eventdata, handles);
+    if array(1)=='*'
+        return;
+    end
+    arr = get(handles.guesses,'string');
+        t = regexp(regexprep(cellstr(arr), '^\s+', ''), '\s+', 'split');
+        initial_guesses = str2double(vertcat(t{:}));
+    L= length(initial_guesses);
+    if L>num || L<num
+        msgbox('number of initial guesses must agree with number of equations','error','Error');
+        return;
+    end
+    output = Gauss_Seidel(array,initial_guesses);
+    if output(1)=='*'
+        return;
+    end
+    write_in_gui(output,hObject,eventdata,handles);
+    
+function x = checknum(array)
+    global num
+    L= length(array);
+    x=0;
+    if L>num || L<num
+        x=1;
+    end
+   
+    
+    
+function x1 = Gauss_Seidel(array, initial_g)
+ tic
+ global tol
+ global iterations
+ A = array;
+ n = length(A)-1;
+ a=A(:,1:n);
+ R = sum(abs(a),2);
+ D = abs(diag(a));
+ W=R-D;
+ check = D>=W;
+ DD = all(check);
+ if DD == 0
+     msgbox('gauss seidel cannot be performed, matrix is not diagonally dominant', 'Error','error');
+     x1(1)='*';
+     return;
+ end
+ for i=1:n
+     temp = array(i,i);
+     if temp==0
+         msgbox('gauss seidel cannot be performed diagonal contains a zero', 'Error','error');
+         x1(1)='*';
+         return;
+     end
+ end
+ if det(a)==0
+    msgbox('gauss seidel cannot be performed', 'Error','error');
+    x1(1)='*';
+    return;
+ end
+ 
+ x1 = initial_g;
+ tolstring = isnan(tol);
+ mycheck=all(tolstring);
+ tempstring = isnan(iterations);
+ mycheck2=all(tempstring);
+ if mycheck==1
+    tol = 0.00001;
+ end
+ m=50;
+ if mycheck2==1
+    m = 50;
+ else
+     m=iterations;
+ end
+ k = 1;
+ X = zeros(n,m);
+ errors = zeros(n,m);
+ while  k <= m
+    err = 0;
+    for i = 1 : n 
+       s = 0;
+       for j = 1 : n 
+          s = s-A(i,j)*x1(j);
+       end
+       s = (s+A(i,n+1))/A(i,i);
+       if abs(s) > err 
+         err  = abs(s);
+       end
+       errors(i,k)=err;
+       x1(i) = x1(i) + s;
+       X(i,k)=x1(i);
+    end
+    if err <= tol 
+      break;
+    else
+      k = k+1;
+    end
+ end 
+ time = num2str(toc);
+ string1=['Time taken: ' time];
+ string2=['  Number of iterations: ' num2str(k)];
+ msgbox([string1 string2]);
+ for i=1:n
+     temparr = X(i,1:k);
+     figure;
+     n=linspace(0,k,k);
+     plot(n,temparr);
+     
+ end
+ output=x1;
+ myerrors = errors(:,1:k);
+ dummy = X(:,1:k);
+ global num;
+ N=num*2;
+ table=zeros(k,N);
+ i=1;
+ v=1;
+ while i<=N
+     temp1 = myerrors(v,:)';
+     temp2 = dummy(v,:)';
+     table(:,i)=temp2;
+     table(:,i+1)=temp1;
+     i=i+2;
+     v=v+1;
+ end
+ fig = figure;
+ uit = uitable(fig,'Data',table);
+ 
+ writetable(array2table(output'),'outputGaussSeidel.txt');
+ 
+function LU_Callback(hObject, eventdata, handles)
+    global num;
+    array = readvalues(hObject, eventdata, handles);
+    if array(1)=='*'
+        return;
+    end
+    output = LUdec(array);
+    if output(1)=='*'
+        return;
+    end
+    write_in_gui(output,hObject,eventdata,handles);
+
+function x= LUdec(array)
+    tic
+    A= array;
+    [ccc,n] = size(A);
+    A= array(:,1:n-1);
+    B = array(:,n);
+    [m,n]=size(A);
+    if (m ~= n )
+        msgbox( 'LU error: Matrix must be square' );
+        x(1)='*';
+        return; 
+    end;
+  L=zeros(m,m);
+  U=zeros(m,m);
+  for i=1:m
+      % Finding L
+      for k=1:i-1
+          L(i,k)=A(i,k);
+          for j=1:k-1
+            L(i,k)= L(i,k)-L(i,j)*U(j,k);
+          end
+          L(i,k) = L(i,k)/U(k,k);
+      end
+      % Finding U
+      for k=i:m
+          U(i,k) = A(i,k);
+          for j=1:i-1
+          U(i,k)= U(i,k)-L(i,j)*U(j,k);
+          end
+      end
+  end
+  for i=1:m
+      L(i,i)=1;   
+  end
+ 
+  y=zeros(m,1); % initiation for y 
+  y(1)=B(1)/L(1,1);
+  for i=2:m
+      y(i)=-L(i,1)*y(1);
+      for k=2:i-1
+           y(i)=y(i)-L(i,k)*y(k);
+      end;
+          y(i)=(B(i)+y(i))/L(i,i);
+   end;
+    % Now we use this y to solve Ux = y
+    x=zeros(m,1);
+    if y(m)==0 && U(m,m)==0
+        msgbox( 'LU error: system has infinte number of solutions' );
+        x(1)='*';
+        return;
+    end
+    for i=1:m
+      temp = U(i,i);
+      if temp==0
+          msgbox( 'LU error: system has no solution' );
+          x(1)='*';
+          return;
+      end
+      
+    end
+    x(m)=y(m)/U(m,m);
+    
+    i=m-1;
+    q=0;
+    while  (i~= 0)
+      x(i)=-U(i,m)*x(m);
+       q=i+1;
+          while (q~=m)
+              x(i)=x(i)-U(i,q)*x(q);
+              q=q+1;
+          end;
+        x(i)=(y(i)+x(i))/U(i,i);
+        i=i-1;
+    end
+    time = num2str(toc);
+    string1=['Time taken: ' time];
+    msgbox(string1);
+    output = x;
+    writetable(array2table(output),'outputLU.txt');
+
+function listbox2_Callback(hObject, eventdata, handles)
+    %GUI deets%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    set(handles.tol, 'enable','on')
+    set(handles.dummy, 'enable','on')
+    set(handles.m, 'enable','on')
+    set(handles.t, 'enable','on')
+    set(handles.eq1, 'enable','off')
+    set(handles.e1, 'enable','off')
+    set(handles.eq2, 'enable','off')
+    set(handles.e2, 'enable','off')
+    set(handles.eq3, 'enable','off')
+    set(handles.e3, 'enable','off')
+    set(handles.eq4, 'enable','off')
+    set(handles.e4, 'enable','off')
+    set(handles.eq5, 'enable','off')
+    set(handles.e5, 'enable','off')
+    set(handles.GaussElimination, 'enable','off')
+    set(handles.GaussJordan, 'enable','off')
+    set(handles.GaussSeidel, 'enable','off')
+    set(handles.LU, 'enable','off')
+    set(handles.lhtext, 'enable','off')
+    set(handles.lhs, 'enable','off')
+    set(handles.filename, 'enable','off')
+    set(handles.name, 'enable','off')
+    set(handles.N, 'enable','off')
+    set(handles.enter, 'enable','off')
+    set(handles.enterfile, 'enable','off')
+    set(handles.dim, 'enable','off')
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    contents=get(handles.listbox2,'Value');
+    
+    if contents == 2
+    set(handles.filename, 'enable','on')
+    set(handles.name, 'enable','on')
+    set(handles.enterfile, 'enable','on')
+    end
+    if contents == 1
+    set(handles.N, 'enable','on')
+    set(handles.enter, 'enable','on')
+    set(handles.dim, 'enable','on')
+    end
+    
+
+
+
+function enterfile_Callback(hObject, eventdata, handles)
+    global num;
+    global tol
+    global iterations;
+    tol = get(handles.tol,'string');
+    tol = str2double(tol);
+    iterations = get(handles.m,'string');
+    iterations = str2double(iterations);
+    filename = get(handles.name,'string');
+    fileID = fopen(filename,'r');
+    if fileID == -1
+        warndlg('ERROR OPENING THE FILE');
+    end
+    if fileID ~= -1
+    num = fgets(fileID);
+    num = str2num(num);
+    method = fgets(fileID);
+    method = method(1:end-2);
+    len =length(method);
+    if len == 0
+        msgbox('please specify the numerical method you want to use');
+        return;
+    end
+    array =zeros(num,num+1);
+    syms a b c d
+    
+    i = 0;
+    for z=1:num 
+        arr = fgets(fileID);
+        i = i + 1;
+        t = regexp(regexprep(cellstr(arr), '^\s+', ''), '\s+', 'split');
+        temparr = str2double(vertcat(t{:}));
+        numnum = length(temparr);
+        array(i,num+1) = temparr(numnum)*-1;
+        if num >=1
+            ca = coeffs(arr,a);
+            temp = 0;
+            if(length(ca)>1)
+                temp = ca(2);
+            end
+            array(i,1) = temp;
+        end
+
+        if num >=2
+            cb = coeffs(arr,b);
+            temp = 0;
+            if(length(cb)>1)
+                temp = cb(2);
+            end
+            array(i,2) = temp;
+        end
+        if num >=3
+            cc = coeffs(arr,c);
+            temp = 0;
+            if(length(cc)>1)
+                temp = cc(2);
+            end
+            array(i,3) = temp;
+        end
+        if num >=4
+            cd = coeffs(arr,d);
+            array(i,4) = cd(2);
+        end
+        if num >=5
+            ce = coeffs(arr,e);
+            array(i,5) = ce(2);
+        end 
+    end
+    g1=strcmpi(method, 'Gaussian-elimination');
+    g2=strcmpi(method, 'Gaussian-jordan');
+    g3=strcmpi(method, 'Gaussian-seidel');
+    g4=strcmpi(method, 'LU-decomposition');
+    [m,n] = size(array);
+    if m~=n-1
+        warndlg('MATRIX IS NOT SQUARE');
+    end
+    if m == n-1
+    if g4 == 1
+       output =  LUdec(array);
+    end
+    if  g3 == 1
+        initialguesses = fgets(fileID);
+        t= regexp(regexprep(cellstr(initialguesses), '^\s+', ''), '\s+', 'split');
+        initialguesses = str2double(vertcat(t{:}));
+        len = length(initialguesses);
+        if len<num || len>num
+            msgbox('Please make sure dimensions of initial guesses match number of equations');
+            return
+        end
+        output = Gauss_Seidel(array, initialguesses);
+    end
+    if  g2 == 1
+        output = Gauss_jordan(array);
+    end
+    if  g1 == 1
+        output = Gauss_Elimination(array);
+    end
+        if output(1)=='*'
+            return;
+        end
+        write_in_gui(output,hObject,eventdata,handles)
+    end
+    end
+function ret = write_in_gui(output,hObject,eventdata,handles)
+    global num;
+        op=[];
+    for i=1:num
+        new = sprintf('\nVariable%d = %f\n\n',i, output(i));
+        if i == 1
+            op = new;
+        end
+        if i~=1
+            op = [op new];
+        end
+    end
+    set(handles.outputbox,'String',op);
+   
+    
+function array = readvalues(hObject,eventdata,handles)
+    global num;
+    array =zeros(num,num+1);
+    lhs_arr = get(handles.lhs,'string');
+    t = regexp(regexprep(cellstr(lhs_arr), '^\s+', ''), '\s+', 'split');
+    lhs_arr = str2double(vertcat(t{:}));
+    x = checknum(lhs_arr);
+    if x==1
+       msgbox('LHS array dimensions do not match','error','Error');
+       array(1)='*';
+       return;
+    end
+    if num >= 1
+        arr1 = get(handles.eq1,'string');
+        t = regexp(regexprep(cellstr(arr1), '^\s+', ''), '\s+', 'split');
+        arr1 = str2double(vertcat(t{:}));
+        x = checknum(arr1);
+        if x==1
+            msgbox('First equation dimensions do not match','error','Error');
+            array(1)='*';
+            return;
+        end
+        array = arr1;
+    end 
+    if num >= 2
+        arr2 = get(handles.eq2,'string');
+        t = regexp(regexprep(cellstr(arr2), '^\s+', ''), '\s+', 'split');
+        arr2 = str2double(vertcat(t{:}));
+        x = checknum(arr2);
+        if x==1
+            msgbox('Second equation dimensions do not match','error','Error');
+            array(1)='*';
+            return;
+        end
+        array = [array; arr2];
+    end 
+    if num >= 3
+        arr3 = get(handles.eq3,'string');
+        t = regexp(regexprep(cellstr(arr3), '^\s+', ''), '\s+', 'split');
+        arr3 = str2double(vertcat(t{:}));
+        x = checknum(arr3);
+        if x==1
+            msgbox('Third equation dimensions do not match','error','Error')
+            array(1)='*';
+            return;
+        end
+        array = [array; arr3];
+    end 
+    if num >= 4
+        arr4 = get(handles.eq4,'string');
+        t = regexp(regexprep(cellstr(arr4), '^\s+', ''), '\s+', 'split');
+        arr4 = str2double(vertcat(t{:}));
+        x = checknum(arr4);
+        if x==1
+            msgbox('Fourth equation dimensions do not match','error','Error');
+            array(1)='*';
+            return;
+        end
+        array = [array; arr4];
+    end 
+    if num >= 5
+        arr5 = get(handles.eq5,'string');
+        t = regexp(regexprep(cellstr(arr5), '^\s+', ''), '\s+', 'split');
+        arr5 = str2double(vertcat(t{:}));
+        x = checknum(arr5);
+        if x==1
+            msgbox('Fifth equation dimensions do not match','error','Error');
+            array(1)='*';
+            return;
+        end
+        array = [array;arr5];
+    end
+    b = lhs_arr';
+    array = [array b];
+
+function tol_Callback(hObject, eventdata, handles)
+function tol_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function m_Callback(hObject, eventdata, handles)
+function m_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function guesses_Callback(hObject, eventdata, handles)
+function guesses_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function listbox2_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function N_Callback(hObject, eventdata, handles)
+function N_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function eq1_Callback(hObject, eventdata, handles)
+function eq1_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function eq2_Callback(hObject, eventdata, handles)
+function eq2_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function eq3_Callback(hObject, eventdata, handles)
+function eq3_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function eq4_Callback(hObject, eventdata, handles)
+function eq4_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function eq5_Callback(hObject, eventdata, handles)
+function eq5_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function name_Callback(hObject, eventdata, handles)
+function name_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+function lhs_Callback(hObject, eventdata, handles)
+
+function lhs_CreateFcn(hObject, eventdata, handles)
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,5 @@
+2
+Gaussian-seidel
+-4*a + 10*b -6
+2*a -5*b -3
+1 1.1 2 
